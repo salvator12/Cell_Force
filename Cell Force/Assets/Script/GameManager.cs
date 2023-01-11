@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     [HideInInspector]
     public int calories = 0;
     public TextMeshProUGUI caloriesText;
-    [HideInInspector]
-    public int health = 3;
+    /*[HideInInspector]*/
+    public int health;
     public Image[] healthbar;
     private void Awake()
     {
@@ -21,10 +23,6 @@ public class GameManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -33,6 +31,7 @@ public class GameManager : MonoBehaviour
         if(health <= 0)
         {
             //game over
+            
         }
     }
 }

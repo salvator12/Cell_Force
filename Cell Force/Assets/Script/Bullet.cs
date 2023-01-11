@@ -20,14 +20,16 @@ public class Bullet : MonoBehaviour
             {
                 gameObject.SetActive(false);
             }
-            else if (collision.gameObject.CompareTag("Player"))
+            if (collision.gameObject.CompareTag("Player"))
             {
-                gameObject.SetActive(false);
                 if (GameManager.instance.health > 0)
                 {
                     GameManager.instance.health--;
+                    Debug.Log("Health: " + GameManager.instance.health);
                     GameManager.instance.healthbar[GameManager.instance.health].gameObject.SetActive(false);
                 }
+                gameObject.SetActive(false);
+                
             }
 
         }
@@ -37,11 +39,6 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void FixedUpdate()
     {
         rb.velocity = moveDirection.normalized * speed;

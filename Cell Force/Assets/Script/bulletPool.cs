@@ -7,8 +7,10 @@ public class bulletPool : MonoBehaviour
     public static bulletPool instance;
     private List<GameObject> bulletPlayerPool = new List<GameObject>();
     private List<GameObject> bulletEnemyPool = new List<GameObject>();
+    private List<GameObject> bulletMinnionPool = new List<GameObject>();
     public int amountPlayerBullet; // menentukan jumlah bullet player yang ingin di pool
     public int amountEnemyBullet;
+    public int amountMinnionBullet;
     [SerializeField] private GameObject bulletPlayerPrefab;
     [SerializeField] private GameObject bulletEnemyPrefab;
     private void Awake()
@@ -21,6 +23,7 @@ public class bulletPool : MonoBehaviour
 
     void Start()
     {
+        
         for(int i = 0; i < amountPlayerBullet; i++)
         {
             GameObject obj = Instantiate(bulletPlayerPrefab);
@@ -33,6 +36,13 @@ public class bulletPool : MonoBehaviour
             GameObject obj = Instantiate(bulletEnemyPrefab);
             obj.SetActive(false);
             bulletEnemyPool.Add(obj);
+        }
+
+        for (int i = 0; i < amountMinnionBullet; i++)
+        {
+            GameObject obj = Instantiate(bulletPlayerPrefab);
+            obj.SetActive(false);
+            bulletMinnionPool.Add(obj);
         }
     }
 
@@ -58,5 +68,17 @@ public class bulletPool : MonoBehaviour
             }
         }
         return null; // jika semuanya aktif
+    }
+
+    public GameObject GetbulletMinnionPooled()
+    {
+        for (int i = 0; i < bulletMinnionPool.Count; i++)
+        {
+            if (!bulletMinnionPool[i].activeInHierarchy) // jika ada bullet yang tidak aktif di urutan hirarki
+            {
+                return bulletMinnionPool[i];
+            }
+        }
+        return null;
     }
 }

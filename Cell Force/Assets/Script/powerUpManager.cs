@@ -8,6 +8,7 @@ public class powerUpManager : MonoBehaviour
     public static powerUpManager instance;
     public GameObject[] _powerUps;
     public Image[] power;
+    public GameObject powerPanel;
     // Start is called before the first frame update
 
     private void Awake()
@@ -17,6 +18,7 @@ public class powerUpManager : MonoBehaviour
     void Start()
     {
         /*currentPowerUpsUI = 0;*/
+        /*DontDestroyOnLoad(powerPanel);*/
     }
 
     // Update is called once per frame

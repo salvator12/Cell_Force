@@ -8,11 +8,13 @@ public class Enemy : MonoBehaviour
     {
         moveLeft,
         moveRight,
+        moveTop,
+        moveBottom,
     }
     public movementType move;
     public List<powerUps> dropPowerUp = new List<powerUps>();
-    public int calories_drop = 5;
-    public int health = 3;
+    public int calories_drop;
+    public int health;
     public float moveSpeed;
     public float startShoot;
     public float fireRate;
@@ -29,6 +31,7 @@ public class Enemy : MonoBehaviour
         /*fireRate = Random.Range(0.8f, 2f) * 2;*/
         /*InvokeRepeating("shoot", startShoot, fireRate);*/
     }
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Bullet"))
@@ -48,13 +51,12 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         movement();
-        Debug.Log("Time: "+ Time.time + " " + "nextShoot: " + nextShoot);
+        /*Debug.Log("Time: "+ Time.time + " " + "nextShoot: " + nextShoot);*/
         if (Time.time > startShoot && Time.time > nextShoot)
         {
             nextShoot = Time.time + fireRate;
             shoot();
         }
-
     }
 
     public void movement()
@@ -97,6 +99,49 @@ public class Enemy : MonoBehaviour
                 {
                     changedir = false;
                 }
+            }
+        }
+
+        if (move == movementType.moveTop)
+        {
+
+            if (!changedir && transform.position.y <= (poscurr.y + 1f))
+            {
+                transform.Translate(new Vector3(0,1,0) * moveSpeed * Time.deltaTime, Space.World);
+                if (transform.position.y >= poscurr.y + 1f)
+                {
+                    changedir = true;
+                }
+
+            }
+            else if (changedir && transform.position.y >= (poscurr.y - 1f))
+            {
+                transform.Translate(new Vector3(0, -1, 0) * moveSpeed * Time.deltaTime, Space.World);
+                if (transform.position.y <= poscurr.y - 1f)
+                {
+                    changedir = false;
+                }
+            }
+        }
+
+        if (move == movementType.moveBottom)
+        {
+            if (!changedir && transform.position.y >= (poscurr.y - 1f))
+            {
+                transform.Translate(new Vector3(0, -1, 0) * moveSpeed * Time.deltaTime, Space.World);
+                if (transform.position.y <= poscurr.y - 1f)
+                {
+                    changedir = true;
+                }
+            }
+            else if (changedir && transform.position.y <= (poscurr.y + 1f))
+            {
+                transform.Translate(new Vector3(0, 1, 0) * moveSpeed * Time.deltaTime, Space.World);
+                if (transform.position.y >= poscurr.y + 1f)
+                {
+                    changedir = false;
+                }
+
             }
         }
     }
