@@ -122,12 +122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3fd96c59b4bae4da10cd0f0f5731b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: 0
-  dropPowerUp:
-  - {fileID: 188852943075302349, guid: 03233b48ee08c69468932681b64f0c72, type: 3}
-  - {fileID: 6856343867589740477, guid: 06b39cad420e338458a8e8accd537eee, type: 3}
+  move: 1
   calories_drop: 5
   health: 3
   moveSpeed: 2
-  startShoot: 0
-  fireRate: 0
+  startShoot: 1
+  fireRate: 2

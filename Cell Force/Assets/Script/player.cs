@@ -12,8 +12,8 @@ public class player : MonoBehaviour
     public float currPowerUpsDur = 0f;
     [HideInInspector]
     public powerUps _powerups;
-    [HideInInspector]
-    public int manyMinnion = 0;
+    public int manyMinnion;
+    public GameObject[] minnion;
     private float fireRate = 0.5f;
     private float nextShoot = 0f;
     private float startAngle, endAngle;
@@ -25,16 +25,23 @@ public class player : MonoBehaviour
         {
             instance = this;
         }
+
     }
     void Start()
     {
         _powerups = null;
+        Debug.Log(manyMinnion);
+        for (int i = 0; i < manyMinnion; i++)
+        {
+            /*Debug.Log("masuk");*/
+            minnion[i].SetActive(true);
+        }
     }
 
     void Update()
     {
         powerUpManager.instance.checkSpawn();
-        Debug.Log("count: " + powerUps.Count);
+        /*Debug.Log("count: " + powerUps.Count);*/
         if(_powerups != null && currPowerUpsDur > 0)
         {
             currPowerUpsDur -= Time.deltaTime;
