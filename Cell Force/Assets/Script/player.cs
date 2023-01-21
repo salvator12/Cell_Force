@@ -12,7 +12,7 @@ public class player : MonoBehaviour
     public float currPowerUpsDur = 0f;
     [HideInInspector]
     public powerUps _powerups;
-    public int manyMinnion;
+    private int manyMinnion;
     public GameObject[] minnion;
     private float fireRate = 0.5f;
     private float nextShoot = 0f;
@@ -31,6 +31,7 @@ public class player : MonoBehaviour
     {
         _powerups = null;
         Debug.Log(manyMinnion);
+        manyMinnion = SaveLoad.data.ManyMinnion;
         for (int i = 0; i < manyMinnion; i++)
         {
             /*Debug.Log("masuk");*/
@@ -98,6 +99,13 @@ public class player : MonoBehaviour
         {
             startAngle = _powerups.powerData.startAngle;
             endAngle = _powerups.powerData.endAngle;
+            if(_powerups.name == "powerUp_BulletFireRate")
+            {
+                _powerups.powerData.fireRate = SaveLoad.data.RapidFireRate;
+            } else if(_powerups.name == "powerUp_BulletDirection")
+            {
+                _powerups.powerData.bulletAmount = SaveLoad.data.SplitbulletAmount;
+            }
             float angleStep = (endAngle - startAngle) / _powerups.powerData.bulletAmount;
             float angle = startAngle;
 

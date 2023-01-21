@@ -24,8 +24,6 @@ public class Boss : MonoBehaviour
     void Start()
     {
         poscurr = transform.position;
-        /*fireRate = Random.Range(0.8f, 2f) * 2;*/
-        /*InvokeRepeating("shoot", startShoot, fireRate);*/
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -35,6 +33,7 @@ public class Boss : MonoBehaviour
             health-=2f;
             if (health <= 0)
             {
+                GameManager.instance.totalEnemies--;
                 this.gameObject.SetActive(false);
                 this.GetComponent<CircleCollider2D>().enabled = false;
                 /*calculate_powerUpsdrop();*/

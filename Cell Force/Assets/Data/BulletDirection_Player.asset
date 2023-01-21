@@ -18,6 +18,6 @@ MonoBehaviour:
   chance: 15
   speed: 10
   fireRate: 0.3
-  bulletAmount: 3
+  bulletAmount: 2
   startAngle: 330
   endAngle: 420

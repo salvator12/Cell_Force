@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviour
         {
             //game over
             gameOver.SetActive(true);
-            
             Time.timeScale = 0f;
         }   
         if(Input.GetKeyDown(KeyCode.Escape) && (!stageComplete.activeSelf && !gameOver.activeSelf))

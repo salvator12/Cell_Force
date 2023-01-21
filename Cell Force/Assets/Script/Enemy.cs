@@ -33,6 +33,17 @@ public class Enemy : MonoBehaviour
         {
             dropPowerUp = StageManager.instance.stage[StageManager.instance.currentStage].powerUps;
         }
+        for(int i = 0; i < dropPowerUp.Count; i++)
+        {
+            if(i == 0)
+            {
+                dropPowerUp[i].powerData.chance = SaveLoad.data.RapidChance;
+            } else if(i == 2)
+            {
+                dropPowerUp[i].powerData.chance = SaveLoad.data.SplitChance;
+            }
+        }
+        
         Debug.Log("drop: " + dropPowerUp);
         /*fireRate = Random.Range(0.8f, 2f) * 2;*/
         /*InvokeRepeating("shoot", startShoot, fireRate);*/
@@ -47,7 +58,7 @@ public class Enemy : MonoBehaviour
             if(health == 0)
             {
                 this.gameObject.SetActive(false);
-                this.GetComponent<BoxCollider2D>().enabled = false;
+                /*this.GetComponent<BoxCollider2D>().enabled = false;*/
                 calculate_powerUpsdrop();
                 GameManager.instance.calories += calories_drop;
                 GameManager.instance.totalEnemies--;
