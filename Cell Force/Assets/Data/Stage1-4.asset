@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Stage1-4
   m_EditorClassIdentifier: 
   level: {fileID: 102900000, guid: cb26c0175a24b2044bf03409fcec594c, type: 3}
-  islocked: 0
+  islocked: 1

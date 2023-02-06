@@ -20,13 +20,18 @@ public class MenuManager : MonoBehaviour
     public void PlayButton()
     {
 
-        SceneManager.LoadScene("Stage1-1");
+        SceneManager.LoadScene("WorldMap");
 
     }
 
     public void OnApplicationQuit()
     {
-        Debug.Log("Berhasil");
+        Application.Quit();
+    }
+
+    public void ensiklopedia()
+    {
+        SceneManager.LoadScene("Ensiklopedia");
     }
 
 }

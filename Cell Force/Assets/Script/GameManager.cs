@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1f;
-        print(Application.persistentDataPath + "/CellForce.bk");
         Debug.Log("Scene: " + SceneManager.GetActiveScene().buildIndex);
         calories = SaveLoad.data.Calories; 
         updateCalories();
@@ -83,11 +82,17 @@ public class GameManager : MonoBehaviour
 
     public void mainMenu()
     {
-        if(totalEnemies == 0)
+        if(totalEnemies <= 0)
         {
-            StageManager.instance.currentLevel++;
-            SaveLoad.data.CurrentLevel = StageManager.instance.currentLevel;
-            StageManager.instance.stage[StageManager.instance.currentStage].levelStage[StageManager.instance.currentLevel].islocked = false;
+            if (StageManager.instance.currentScene != 9 && StageManager.instance.currentScene != 14) //biar masuk ke stage berikutnya, level tetap stay di 0
+            {
+                StageManager.instance.currentLevel[StageManager.instance.currentStage]++;
+            }
+            if (SaveLoad.data.CurrentLevel[StageManager.instance.currentStage] < StageManager.instance.currentLevel[StageManager.instance.currentStage])
+            {
+                SaveLoad.data.CurrentLevel = StageManager.instance.currentLevel;
+            }
+/*            StageManager.instance.stage[StageManager.instance.currentStage].levelStage[StageManager.instance.currentLevel[StageManager.instance.currentStage]].islocked = false;*/
         }
         SaveLoad.data.Calories = calories;
         SaveLoad.Save();
@@ -96,9 +101,15 @@ public class GameManager : MonoBehaviour
 
     public void shop()
     {
-        StageManager.instance.currentLevel++;
-        SaveLoad.data.CurrentLevel = StageManager.instance.currentLevel;
-        StageManager.instance.stage[StageManager.instance.currentStage].levelStage[StageManager.instance.currentLevel].islocked = false;
+        if (StageManager.instance.currentScene != 9 && StageManager.instance.currentScene != 14) //biar masuk ke stage berikutnya, level tetap stay di 0
+        {
+            StageManager.instance.currentLevel[StageManager.instance.currentStage]++;
+        }
+        if (SaveLoad.data.CurrentLevel[StageManager.instance.currentStage] < StageManager.instance.currentLevel[StageManager.instance.currentStage])
+        {
+            SaveLoad.data.CurrentLevel = StageManager.instance.currentLevel;
+        }
+
         SaveLoad.data.Calories = calories;
         Time.timeScale = 1f;
         StageManager.instance.currentScene = SceneManager.GetActiveScene().buildIndex;

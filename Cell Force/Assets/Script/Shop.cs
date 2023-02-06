@@ -16,6 +16,7 @@ public class Shop : MonoBehaviour
     public Text splitCost;
     public Text minnionCost;
     public Text calories;
+    public GameObject bossNotification;
     private bool rapidMax = false;
     private bool splitMax = false;
     private bool minnionMax = false;
@@ -57,6 +58,20 @@ public class Shop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Next Level: " + StageManager.instance.currentLevel[StageManager.instance.currentStage]);
+        if(StageManager.instance.currentLevel[StageManager.instance.currentStage] == 4)
+        {
+            bossNotification.SetActive(true);
+        } else
+        {
+            bossNotification.SetActive(false);
+        }
+
+        if(StageManager.instance.currentStage == 1)
+        {
+            spliButton.SetActive(true);
+        }
+
         /*Debug.Log("Scene next: " + StageManager.instance.currentScene);*/
         if (SaveLoad.data.Calories >= SaveLoad.data.RapidCost && levelRapid.text != "Max")
         {
@@ -126,7 +141,7 @@ public class Shop : MonoBehaviour
                 
             } else if(SaveLoad.data.RapidFireRate == 0.10f)
             {
-                SaveLoad.data.RapidFireRate = 0.05f;
+                SaveLoad.data.RapidFireRate = 0.08f;
                 SaveLoad.data.RapidChance = 30f;
                 rapidCost.text = "--";
                 levelRapid.text = "Max";
@@ -147,14 +162,14 @@ public class Shop : MonoBehaviour
                 SaveLoad.data.SplitbulletAmount = 3;
                 SaveLoad.data.SplitChance = 20f;
                 SaveLoad.data.SplitCost = 100;
-                rapidCost.text = SaveLoad.data.RapidCost.ToString();
+                splitCost.text = SaveLoad.data.SplitCost.ToString();
                 levelSplit.text = "Level 2";
             }
             else if (SaveLoad.data.SplitbulletAmount == 3)
             {
                 SaveLoad.data.SplitbulletAmount = 4;
                 SaveLoad.data.SplitChance = 25f;
-                rapidCost.text = "--";  
+                splitCost.text = "--";  
                 levelSplit.text = "Max";
                 splitMax = true;
             }

@@ -35,8 +35,9 @@ public class Boss : MonoBehaviour
             {
                 GameManager.instance.totalEnemies--;
                 this.gameObject.SetActive(false);
-                this.GetComponent<CircleCollider2D>().enabled = false;
-                /*calculate_powerUpsdrop();*/
+                StageManager.instance.currentStage += 1;
+                SaveLoad.data.CurrentStage = StageManager.instance.currentStage;
+                SaveLoad.data.UnlockedBoss1 = true;
                 GameManager.instance.calories += calories_drop;
             }
         }
@@ -45,7 +46,6 @@ public class Boss : MonoBehaviour
     void Update()
     {
         movement();
-        /*Debug.Log("Time: "+ Time.time + " " + "nextShoot: " + nextShoot);*/
         if (Time.time > startShoot && Time.time > nextShoot)
         {
             nextShoot = Time.time + fireRate;
@@ -137,6 +137,14 @@ public class Boss : MonoBehaviour
         float random = Random.Range(0f, dropPowerUp.Count+1);
         for (int i = 0; i < dropPowerUp.Count; i++)
         {
+            /*if(i == 0)
+            {
+                dropPowerUp[i].powerData.chance = 20f;
+                dropPowerUp[i].powerData.fireRate = 0.10f;
+            } else if(i == 1)
+            {
+                dropPowerUp[i].powerData.chance = 15f;
+            }*/
             Debug.Log("drop: " + dropPowerUp[i].powerData.chance / total + numForAdding + "rand: " + random);
             if (dropPowerUp[i].powerData.chance / total + numForAdding >= random)
             {

@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 20d9029cdcd246646bcd1e658fe6aa96
   - enabled: 1
+    path: Assets/Scenes/WorldMap.unity
+    guid: 9e641108f505e0649bc3098fa960585d
+  - enabled: 1
+    path: Assets/Scenes/LevelSelection.unity
+    guid: 14775e0acb4f96742b05322bbacac9f9
+  - enabled: 1
     path: Assets/Scenes/Shop.unity
     guid: 66e1083e6981e7a4d81638880c3d6d7a
   - enabled: 1
@@ -29,4 +35,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage1-Final Boss.unity
     guid: d82c99e2037055a459a8cfc5f3ccaf7c
+  - enabled: 1
+    path: Assets/Scenes/Stage2-1.unity
+    guid: a7eaadcd1704dc44db6349c953091be8
+  - enabled: 1
+    path: Assets/Scenes/Stage2-2.unity
+    guid: 55d016ab9f0dccb4e8aa40cf2a9ecf01
+  - enabled: 1
+    path: Assets/Scenes/Stage2-3.unity
+    guid: f44df68d259bf4a4daef4f708d62231d
+  - enabled: 1
+    path: Assets/Scenes/Stage2-4.unity
+    guid: 62d6c9b78914fb94bab75c4cd9214004
+  - enabled: 1
+    path: Assets/Scenes/Stage2-FinalBoss.unity
+    guid: f6b1560063bc80446bf5cfda26bb3462
+  - enabled: 1
+    path: Assets/Scenes/Ensiklopedia.unity
+    guid: fbf5c7ca7f3a4f5428121ed6f722dd18
   m_configObjects: {}

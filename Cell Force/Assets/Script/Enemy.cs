@@ -51,7 +51,7 @@ public class Enemy : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Bullet"))
+        if(collision.gameObject.CompareTag("Bullet") || collision.gameObject.CompareTag("medicine"))
         {
             Debug.Log("Dead");
             health--;
@@ -179,6 +179,7 @@ public class Enemy : MonoBehaviour
     }
     public void calculate_powerUpsdrop()
     {
+        Debug.Log("drop: " + dropPowerUp.Count);
         float random = Random.Range(0f, (float)dropPowerUp.Count+1);
         for(int i = 0; i < dropPowerUp.Count; i++)
         {

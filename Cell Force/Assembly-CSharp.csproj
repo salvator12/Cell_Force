@@ -61,6 +61,7 @@
     <Compile Include="Assets\Script\playerMovement.cs" />
     <Compile Include="Assets\Script\Bullet.cs" />
     <Compile Include="Assets\Script\GameData.cs" />
+    <Compile Include="Assets\Script\MenuManager.cs" />
     <Compile Include="Assets\Script\StageManager.cs" />
     <Compile Include="Assets\Script\SaveLoad.cs" />
     <Compile Include="Assets\Script\minnion.cs" />
@@ -68,10 +69,12 @@
     <Compile Include="Assets\Script\Enemy.cs" />
     <Compile Include="Assets\Script\bulletPool.cs" />
     <Compile Include="Assets\Script\Data\StageData.cs" />
+    <Compile Include="Assets\Script\BossStage2.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
+    <Compile Include="Assets\Script\LevelManager.cs" />
     <Compile Include="Assets\Script\player.cs" />
     <Compile Include="Assets\Script\Data\levelData.cs" />
-    <Compile Include="Assets\Script\MenuManager.cs" />
+    <Compile Include="Assets\Script\EnsiManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

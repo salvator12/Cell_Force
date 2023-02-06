@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Stage1-Final Boos
   m_EditorClassIdentifier: 
   level: {fileID: 102900000, guid: d82c99e2037055a459a8cfc5f3ccaf7c, type: 3}
-  islocked: 0
+  islocked: 1

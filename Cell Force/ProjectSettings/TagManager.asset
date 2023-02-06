@@ -48,3 +48,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Battle Map
+    uniqueID: 1244585665
+    locked: 0
+  - name: background
+    uniqueID: 2356283241
+    locked: 0

@@ -7,7 +7,7 @@ public class GameData
 {
     private int calories;
     /*private int currentScene;*/
-    private int currentLevel;
+    private int[] currentLevel = new int[2];
     private int currentStage;
     private int rapidCost;
     private int splitCost;
@@ -21,11 +21,16 @@ public class GameData
     private string levelSplit;
     private string levelRapid;
     private string haveMinnion;
+    private bool unlockedBoss1;
+    private bool unlockedBoss2;
     public GameData()
     {
+        unlockedBoss1 = false;
+        unlockedBoss2 = false;
         calories = 0;
         currentStage = 0;
-        currentLevel = 0;
+        currentLevel[0] = 0;
+        currentLevel[1] = 0;
         splitbulletAmount = 2;
         rapidFireRate = 0.15f;
         rapidCost = 50;
@@ -65,7 +70,7 @@ public class GameData
         }
     }
 
-    public int CurrentLevel
+    public int[] CurrentLevel
     {
         get
         {
@@ -216,6 +221,30 @@ public class GameData
         set
         {
             haveMinnion = value;
+        }
+    }
+
+    public bool UnlockedBoss1
+    {
+        get
+        {
+            return unlockedBoss1;
+        }
+        set
+        {
+            unlockedBoss1 = value;
+        }
+    }
+
+    public bool UnlockedBoss2
+    {
+        get
+        {
+            return unlockedBoss2;
+        }
+        set
+        {
+            unlockedBoss2 = value;
         }
     }
 }

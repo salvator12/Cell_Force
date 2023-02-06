@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameStage: lungs
   levelStage:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 8a2251820f265be458a75fb08822874b, type: 2}
+  - {fileID: 11400000, guid: b47f0e2a583b2734c8b515f5b363b246, type: 2}
+  - {fileID: 11400000, guid: fa4758a288225294fbc8504cc5ff9621, type: 2}
+  - {fileID: 11400000, guid: 9ead4abe920be2e4296774f9f96bcbb9, type: 2}
+  - {fileID: 11400000, guid: a6b7acda2e024f04c994d897ad768a95, type: 2}
   powerUps:
   - {fileID: 188852943075302349, guid: 03233b48ee08c69468932681b64f0c72, type: 3}
   - {fileID: 6856343867589740477, guid: 06b39cad420e338458a8e8accd537eee, type: 3}
