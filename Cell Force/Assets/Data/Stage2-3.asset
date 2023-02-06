@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321850e82b9518340af984432a12ca39, type: 3}
   m_Name: Stage2-3
   m_EditorClassIdentifier: 
-  level: {fileID: 102900000, guid: f44df68d259bf4a4daef4f708d62231d, type: 3}
+  level: Stage2-3
   islocked: 1

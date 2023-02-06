@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321850e82b9518340af984432a12ca39, type: 3}
   m_Name: Stage1-Final Boos
   m_EditorClassIdentifier: 
-  level: {fileID: 102900000, guid: d82c99e2037055a459a8cfc5f3ccaf7c, type: 3}
+  level: Stage1-Final Boos
   islocked: 1
